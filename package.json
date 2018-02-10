@@ -12,7 +12,8 @@
 	"private": true,
 	"dependencies": {
 		"@spectacles/brokers": "^0.1.0",
-		"@spectacles/rest": "^0.3.0"
+		"@spectacles/rest": "^0.3.0",
+		"strelitzia": "0-0-2/strelitzia"
 	},
 	"devDependencies": {
 		"env-cmd": "^7.0.0",
