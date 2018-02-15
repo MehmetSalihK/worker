@@ -6,12 +6,12 @@
 	"scripts": {
 		"lint": "eslint src"
 	},
-	"repository": "https://github.com/0-0-2/worker",
+	"repository": "https://github.com/Project-002/worker",
 	"author": "iCrawl <icrawltogo@gmail.com>",
 	"license": "UNLICENSED",
 	"private": true,
 	"dependencies": {
-		"strelitzia": "0-0-2/strelitzia"
+		"strelitzia": "Project-002/strelitzia"
 	},
 	"devDependencies": {
 		"env-cmd": "^7.0.0",
