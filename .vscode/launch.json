@@ -4,7 +4,7 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "Test Worker",
+			"name": "Launch Worker",
 			"program": "${workspaceFolder}/src/index.js",
 			"envFile": "${workspaceFolder}/.env",
 			"showAsyncStacks": true
