@@ -2,24 +2,24 @@
 # yarn lockfile v1
 
 
-"@spectacles/brokers@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@spectacles/brokers/-/brokers-0.4.0.tgz#811947a30d6c5203b49654bf4a441c6bc4584585"
+"@spectacles/brokers@^0.4.2":
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/@spectacles/brokers/-/brokers-0.4.2.tgz#7a3e125dcda2b5c20dabff7cd7c724d962e3b8e9"
   dependencies:
     "@spectacles/util" "^0.1.1"
     amqplib "^0.5.2"
   optionalDependencies:
     ws "^4.0.0"
 
-"@spectacles/cache@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/@spectacles/cache/-/cache-0.2.1.tgz#49d2cf21273739621d010f72dde04661748dd0a8"
+"@spectacles/cache@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@spectacles/cache/-/cache-0.2.5.tgz#cec577f31f2a40d1e427249b3b01028373931b20"
   dependencies:
     redis-p "^0.1.8"
 
-"@spectacles/rest@^0.3.0":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@spectacles/rest/-/rest-0.3.1.tgz#88a51c3724bc2010013ebf35e1fcc9f208ded792"
+"@spectacles/rest@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@spectacles/rest/-/rest-0.3.2.tgz#dff065b3ee62dd1b3654cc00dc474d717c4fb8e5"
   dependencies:
     axios "^0.17.0"
     form-data "^2.3.1"
@@ -90,8 +90,8 @@ ansi-styles@^3.2.0:
     color-convert "^1.9.0"
 
 argparse@^1.0.7:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.9.tgz#73d83bc263f86e97f8cc4f6bae1b0e90a7d22c86"
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
   dependencies:
     sprintf-js "~1.0.2"
 
@@ -225,9 +225,9 @@ color-name@^1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
 
-combined-stream@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.5.tgz#938370a57b4a51dea2c77c15d5c5fdf895164009"
+combined-stream@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.6.tgz#723e7df6e801ac5613113a7e445a9b69cb632818"
   dependencies:
     delayed-stream "~1.0.0"
 
@@ -460,11 +460,11 @@ follow-redirects@^1.2.5:
     debug "^3.1.0"
 
 form-data@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.3.1.tgz#6fb94fbd71885306d73d15cc497fe4cc4ecd44bf"
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/form-data/-/form-data-2.3.2.tgz#4970498be604c20c005d4f5c23aecd21d6b49099"
   dependencies:
     asynckit "^0.4.0"
-    combined-stream "^1.0.5"
+    combined-stream "1.0.6"
     mime-types "^2.1.12"
 
 fs.realpath@^1.0.0:
@@ -730,15 +730,15 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-mime-db@~1.30.0:
-  version "1.30.0"
-  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.30.0.tgz#74c643da2dd9d6a45399963465b26d5ca7d71f01"
+mime-db@~1.33.0:
+  version "1.33.0"
+  resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.33.0.tgz#a3492050a5cb9b63450541e39d9788d2272783db"
 
 mime-types@^2.1.12:
-  version "2.1.17"
-  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.17.tgz#09d7a393f03e995a79f8af857b70a9e0ab16557a"
+  version "2.1.18"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.18.tgz#6f323f60a83d11146f831ff11fd66e2fe5503bb8"
   dependencies:
-    mime-db "~1.30.0"
+    mime-db "~1.33.0"
 
 mimic-fn@^1.0.0:
   version "1.2.0"
@@ -967,11 +967,11 @@ sprintf-js@~1.0.2:
 
 strelitzia@Project-002/strelitzia:
   version "0.1.0"
-  resolved "https://codeload.github.com/Project-002/strelitzia/tar.gz/fd9954d54381c95a2b5bdc40628bf728202d8d37"
+  resolved "https://codeload.github.com/Project-002/strelitzia/tar.gz/0e94b5db8da57c3f567e2baef973abd56b87b086"
   dependencies:
-    "@spectacles/brokers" "^0.4.0"
-    "@spectacles/cache" "^0.2.1"
-    "@spectacles/rest" "^0.3.0"
+    "@spectacles/brokers" "^0.4.2"
+    "@spectacles/cache" "^0.2.5"
+    "@spectacles/rest" "^0.3.2"
     ioredis "^3.2.2"
 
 string-width@^2.1.0, string-width@^2.1.1:
