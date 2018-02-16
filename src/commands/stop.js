@@ -1,10 +1,10 @@
 const { Command } = require('strelitzia');
 
-class Leave extends Command {
+class Stop extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'leave',
-			description: 'This is a simple leave command.'
+			name: 'stop',
+			description: 'This is a simple stop command.'
 		});
 	}
 
@@ -12,6 +12,10 @@ class Leave extends Command {
 		const channel = await this.client.cache.channels.get(message.channel_id);
 		const voiceChannel = await this.client.cache.guilds.get(channel.guild_id).voiceStates.get(message.author.id);
 		const ownVoiceChannel = await this.client.cache.guilds.get(channel.guild_id).voiceStates.get(this.client.id);
+		if (ownVoiceChannel && ownVoiceChannel.channel_id === 'null') {
+			await this.client.rest.channels[message.channel_id].messages.create({ content: 'I\'m not in a voice channel.' });
+			return;
+		}
 		if (voiceChannel) {
 			if (voiceChannel.channel_id === 'null') {
 				await this.client.rest.channels[message.channel_id].messages.create({ content: 'You aren\'t in a voice channel!' });
@@ -24,18 +28,10 @@ class Leave extends Command {
 				}
 			}
 		}
+		await this.client.publisher.publish('lavalink:STOP', { guild: channel.guild_id }, { expiration: '60000' });
 		await this.client.redis.del(`tracklist:${channel.guild_id}`);
-		await this.client.publisher.publish('discord:VOICE_STATE_UPDATE', {
-			op: 4,
-			d: {
-				guild_id: channel.guild_id,
-				channel_id: null,
-				self_mute: false,
-				self_deaf: false
-			}
-		}, { expiration: '60000' });
-		await this.client.rest.channels[message.channel_id].messages.create({ content: 'Bye!' });
+		await this.client.rest.channels[message.channel_id].messages.create({ content: `Stopped the music.` });
 	}
 }
 
-module.exports = Leave;
+module.exports = Stop;
