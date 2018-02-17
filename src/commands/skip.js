@@ -4,7 +4,11 @@ class Skip extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'skip',
-			description: 'This is a simple skip command.'
+			description: 'This is a simple skip command.',
+			throttling: {
+				usages: 2,
+				duration: 3
+			}
 		});
 	}
 

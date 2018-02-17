@@ -4,12 +4,15 @@ class Volume extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'volume',
-			description: 'This is a simple volume command.'
+			description: 'This is a simple volume command.',
+			throttling: {
+				usages: 2,
+				duration: 3
+			}
 		});
 	}
 
 	async run(message, args) {
-		args = args.split(' ');
 		const channel = await this.client.cache.channels.get(message.channel_id);
 		const voiceChannel = await this.client.cache.guilds.get(channel.guild_id).voiceStates.get(message.author.id);
 		const ownVoiceChannel = await this.client.cache.guilds.get(channel.guild_id).voiceStates.get(this.client.id);

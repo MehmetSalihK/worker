@@ -4,7 +4,11 @@ class Join extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'join',
-			description: 'This is a simple join command.'
+			description: 'This is a simple join command.',
+			throttling: {
+				usages: 2,
+				duration: 3
+			}
 		});
 	}
 

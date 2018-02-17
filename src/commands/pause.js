@@ -4,7 +4,11 @@ class Pause extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'pause',
-			description: 'This is a simple pause command.'
+			description: 'This is a simple pause command.',
+			throttling: {
+				usages: 2,
+				duration: 3
+			}
 		});
 	}
 

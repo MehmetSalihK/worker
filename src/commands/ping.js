@@ -15,7 +15,11 @@ class Ping extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'ping',
-			description: 'This is a simple ping command.'
+			description: 'This is a simple ping command.',
+			throttling: {
+				usages: 2,
+				duration: 3
+			}
 		});
 	}
 

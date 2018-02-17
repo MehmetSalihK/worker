@@ -5,7 +5,11 @@ class Play extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'play',
-			description: 'This is a simple play command.'
+			description: 'This is a simple play command.',
+			throttling: {
+				usages: 2,
+				duration: 3
+			}
 		});
 
 		this.axios = axios.create({
@@ -35,7 +39,7 @@ class Play extends Command {
 			}
 		}
 		try {
-			var { data } = await this.axios.get(`/loadtracks?identifier=${args.replace(/<(.+)>/g, '$1')}`);
+			var { data } = await this.axios.get(`/loadtracks?identifier=${args[0].replace(/<(.+)>/g, '$1')}`);
 		} catch (error) {
 			await this.client.rest.channels[message.channel_id].messages.create({ content: 'Whatever you did, it didn\'t work.' });
 			return;

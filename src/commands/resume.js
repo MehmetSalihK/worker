@@ -4,7 +4,11 @@ class Resume extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'resume',
-			description: 'This is a simple resume command.'
+			description: 'This is a simple resume command.',
+			throttling: {
+				usages: 2,
+				duration: 3
+			}
 		});
 	}
 

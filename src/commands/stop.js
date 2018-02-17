@@ -4,7 +4,11 @@ class Stop extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'stop',
-			description: 'This is a simple stop command.'
+			description: 'This is a simple stop command.',
+			throttling: {
+				usages: 2,
+				duration: 3
+			}
 		});
 	}
 

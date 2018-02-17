@@ -4,7 +4,11 @@ class Leave extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'leave',
-			description: 'This is a simple leave command.'
+			description: 'This is a simple leave command.',
+			throttling: {
+				usages: 2,
+				duration: 3
+			}
 		});
 	}
 
