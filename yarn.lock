@@ -967,7 +967,7 @@ sprintf-js@~1.0.2:
 
 strelitzia@Project-002/strelitzia:
   version "0.1.0"
-  resolved "https://codeload.github.com/Project-002/strelitzia/tar.gz/a11090190d667ecf9744ef5aad633eedeb777c0b"
+  resolved "https://codeload.github.com/Project-002/strelitzia/tar.gz/f74701bcea2455b5b394da88d7b0ba6e36081d72"
   dependencies:
     "@spectacles/brokers" "^0.4.2"
     "@spectacles/cache" "^0.2.6"
