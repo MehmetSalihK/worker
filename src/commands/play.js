@@ -6,6 +6,7 @@ class Play extends Command {
 		super(client, {
 			name: 'play',
 			description: 'This is a simple play command.',
+			group: 'music',
 			throttling: {
 				usages: 2,
 				duration: 3

@@ -5,6 +5,7 @@ class Resume extends Command {
 		super(client, {
 			name: 'resume',
 			description: 'This is a simple resume command.',
+			group: 'music',
 			throttling: {
 				usages: 2,
 				duration: 3

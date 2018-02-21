@@ -5,6 +5,7 @@ class Clear extends Command {
 		super(client, {
 			name: 'clear',
 			description: 'This is a simple clear command.',
+			group: 'music',
 			throttling: {
 				usages: 2,
 				duration: 3

@@ -11,6 +11,11 @@ const client = new Strelitzia({
 	weebsh: true
 });
 
+client.registry.registerGroups([
+	['anime', 'Anime'],
+	['music', 'Music'],
+	['util', 'Util']
+]);
 client.registry.registerCommandsIn(join(__dirname, 'commands'));
 client.registry.registerEventsIn(join(__dirname, 'events'));
 

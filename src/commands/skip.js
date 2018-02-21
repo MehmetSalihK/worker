@@ -5,6 +5,7 @@ class Skip extends Command {
 		super(client, {
 			name: 'skip',
 			description: 'This is a simple skip command.',
+			group: 'music',
 			throttling: {
 				usages: 2,
 				duration: 3

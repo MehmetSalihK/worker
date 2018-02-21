@@ -5,6 +5,7 @@ class Pause extends Command {
 		super(client, {
 			name: 'pause',
 			description: 'This is a simple pause command.',
+			group: 'music',
 			throttling: {
 				usages: 2,
 				duration: 3

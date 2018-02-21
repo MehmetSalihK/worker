@@ -5,6 +5,7 @@ class Join extends Command {
 		super(client, {
 			name: 'join',
 			description: 'This is a simple join command.',
+			group: 'music',
 			throttling: {
 				usages: 2,
 				duration: 3

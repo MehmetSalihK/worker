@@ -5,6 +5,7 @@ class Volume extends Command {
 		super(client, {
 			name: 'volume',
 			description: 'This is a simple volume command.',
+			group: 'music',
 			throttling: {
 				usages: 2,
 				duration: 3

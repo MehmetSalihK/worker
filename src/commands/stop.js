@@ -5,6 +5,7 @@ class Stop extends Command {
 		super(client, {
 			name: 'stop',
 			description: 'This is a simple stop command.',
+			group: 'music',
 			throttling: {
 				usages: 2,
 				duration: 3

@@ -16,6 +16,7 @@ class Ping extends Command {
 		super(client, {
 			name: 'ping',
 			description: 'This is a simple ping command.',
+			group: 'util',
 			throttling: {
 				usages: 2,
 				duration: 3

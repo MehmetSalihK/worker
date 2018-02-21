@@ -5,6 +5,7 @@ class Stats extends Command {
 		super(client, {
 			name: 'stats',
 			description: 'This is a simple stats command.',
+			group: 'util',
 			throttling: {
 				usages: 2,
 				duration: 3

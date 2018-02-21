@@ -5,6 +5,7 @@ class Leave extends Command {
 		super(client, {
 			name: 'leave',
 			description: 'This is a simple leave command.',
+			group: 'music',
 			throttling: {
 				usages: 2,
 				duration: 3
