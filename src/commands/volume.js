@@ -6,6 +6,7 @@ class Volume extends Command {
 			name: 'volume',
 			description: 'This is a simple volume command.',
 			group: 'music',
+			format: '<volume>',
 			throttling: {
 				usages: 2,
 				duration: 3

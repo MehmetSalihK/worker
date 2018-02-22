@@ -7,6 +7,7 @@ class Play extends Command {
 			name: 'play',
 			description: 'This is a simple play command.',
 			group: 'music',
+			format: '<query>',
 			throttling: {
 				usages: 2,
 				duration: 3
