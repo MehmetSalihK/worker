@@ -18,6 +18,7 @@ class Help extends Command {
 	async run(message, args) {
 		const { groups } = this.client.registry;
 		const commands = this.client.registry.findCommands(args[0] ? args[0] : '');
+		if (!commands.length || !commands[0]) return;
 		if (args[0]) {
 			await this.client.rest.channels[message.channel_id].messages.create({
 				embed: {
@@ -30,7 +31,7 @@ class Help extends Command {
 						},
 						{
 							name: '❯ Format',
-							value: `${Command.usage(commands[0])}`
+							value: `${commands[0].usage(commands[0].format ? commands[0].format : '')}`
 						}
 					]
 				}
