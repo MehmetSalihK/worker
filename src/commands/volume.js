@@ -19,17 +19,17 @@ class Volume extends Command {
 		const voiceChannel = await this.client.cache.guilds.get(channel.guild_id).voiceStates.get(message.author.id);
 		const ownVoiceChannel = await this.client.cache.guilds.get(channel.guild_id).voiceStates.get(this.client.id);
 		if (ownVoiceChannel && ownVoiceChannel.channel_id === 'null') {
-			await this.client.rest.channels[message.channel_id].messages.create({ content: 'I\'m not in a voice channel.' });
+			await this.client.rest.channels[channel.id].messages.create({ content: 'I\'m not in a voice channel.' });
 			return;
 		}
 		if (voiceChannel) {
 			if (voiceChannel.channel_id === 'null') {
-				await this.client.rest.channels[message.channel_id].messages.create({ content: 'You aren\'t in a voice channel!' });
+				await this.client.rest.channels[channel.id].messages.create({ content: 'You aren\'t in a voice channel!' });
 				return;
 			}
 			if (ownVoiceChannel) {
 				if (ownVoiceChannel.channel_id !== 'null' && voiceChannel.channel_id !== ownVoiceChannel.channel_id) {
-					await this.client.rest.channels[message.channel_id].messages.create({ content: 'Don\'t event try.' });
+					await this.client.rest.channels[channel.id].messages.create({ content: 'Don\'t event try.' });
 					return;
 				}
 			}
@@ -38,7 +38,7 @@ class Volume extends Command {
 			guild: channel.guild_id,
 			volume: args[0]
 		}, { expiration: '60000' });
-		await this.client.rest.channels[message.channel_id].messages.create({ content: `Setting volume to ${args[0]}` });
+		await this.client.rest.channels[channel.id].messages.create({ content: `Setting volume to ${args[0]}` });
 	}
 }
 

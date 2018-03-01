@@ -19,12 +19,12 @@ class Leave extends Command {
 		const ownVoiceChannel = await this.client.cache.guilds.get(channel.guild_id).voiceStates.get(this.client.id);
 		if (voiceChannel) {
 			if (voiceChannel.channel_id === 'null') {
-				await this.client.rest.channels[message.channel_id].messages.create({ content: 'You aren\'t in a voice channel!' });
+				await this.client.rest.channels[channel.id].messages.create({ content: 'You aren\'t in a voice channel!' });
 				return;
 			}
 			if (ownVoiceChannel) {
 				if (ownVoiceChannel.channel_id !== 'null' && voiceChannel.channel_id !== ownVoiceChannel.channel_id) {
-					await this.client.rest.channels[message.channel_id].messages.create({ content: 'Don\'t event try.' });
+					await this.client.rest.channels[channel.id].messages.create({ content: 'Don\'t event try.' });
 					return;
 				}
 			}
@@ -39,7 +39,7 @@ class Leave extends Command {
 				self_deaf: false
 			}
 		}, { expiration: '60000' });
-		await this.client.rest.channels[message.channel_id].messages.create({ content: 'Bye!' });
+		await this.client.rest.channels[channel.id].messages.create({ content: 'Bye!' });
 	}
 }
 
