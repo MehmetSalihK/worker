@@ -23,26 +23,25 @@ class Play extends Command {
 
 	async run(message, args) {
 		args = args.join(' ');
-		const channel = await this.client.cache.channels.get(message.channel_id);
-		const voiceChannel = await this.client.cache.guilds.get(channel.guild_id).voiceStates.get(message.author.id);
-		const ownVoiceChannel = await this.client.cache.guilds.get(channel.guild_id).voiceStates.get(this.client.id);
+		const voiceChannel = await this.client.cache.guilds.get(message.guild_id).voiceStates.get(message.author.id);
+		const ownVoiceChannel = await this.client.cache.guilds.get(message.guild_id).voiceStates.get(this.client.id);
 		if (voiceChannel) {
 			if (voiceChannel.channel_id === 'null') {
-				await this.client.rest.channels[channel.id].messages.create({ content: 'You aren\'t in a voice channel!' });
+				await this.client.rest.channels[message.channel_id].messages.create({ content: 'You aren\'t in a voice channel!' });
 				return;
 			}
 			if (ownVoiceChannel) {
 				if (ownVoiceChannel.channel_id !== 'null' && voiceChannel.channel_id !== ownVoiceChannel.channel_id) {
-					await this.client.rest.channels[channel.id].messages.create({ content: 'Don\'t event try.' });
+					await this.client.rest.channels[message.channel_id].messages.create({ content: 'Don\'t event try.' });
 					return;
 				}
 			}
 		}
-		if (ownVoiceChannel && ownVoiceChannel.channel_id === 'null') {
+		if (!ownVoiceChannel || ownVoiceChannel.channel_id === 'null') {
 			await this.client.publisher.publish('discord:VOICE_STATE_UPDATE', {
 				op: 4,
 				d: {
-					guild_id: channel.guild_id,
+					guild_id: message.guild_id,
 					channel_id: voiceChannel.channel_id,
 					self_mute: false,
 					self_deaf: false
@@ -58,24 +57,24 @@ class Play extends Command {
 				var { data } = await this.axios.get(`/loadtracks?identifier=ytsearch:${args.replace(/<(.+)>/g, '$1')}`);
 			}
 		} catch (error) {
-			await this.client.rest.channels[channel.id].messages.create({ content: 'Whatever you did, it didn\'t work.' });
+			await this.client.rest.channels[message.channel_id].messages.create({ content: 'Whatever you did, it didn\'t work.' });
 			return;
 		}
 		if (!data.length || !data) {
-			await this.client.rest.channels[channel.id].messages.create({ content: 'Couldn\'t find a track.' });
+			await this.client.rest.channels[message.channel_id].messages.create({ content: 'Couldn\'t find a track.' });
 			return;
 		}
-		const songs = await this.client.redis.llen(`tracklist:${channel.guild_id}`);
+		const songs = await this.client.redis.llen(`tracklist:${message.guild_id}`);
 		if (!songs) {
-			await this.client.redis.rpush(`tracklist:${channel.guild_id}`, JSON.stringify(data[0]));
+			await this.client.redis.rpush(`tracklist:${message.guild_id}`, JSON.stringify(data[0]));
 			await this.client.publisher.publish('lavalink:PLAY', {
-				guild: channel.guild_id,
+				guild: message.guild_id,
 				track: data[0].track
 			}, { expiration: '60000' });
-			await this.client.rest.channels[channel.id].messages.create({ content: `Now playing: ${data[0].info.title}` });
+			await this.client.rest.channels[message.channel_id].messages.create({ content: `Now playing: ${data[0].info.title}` });
 		} else {
-			await this.client.redis.rpush(`tracklist:${channel.guild_id}`, JSON.stringify(data[0]));
-			await this.client.rest.channels[channel.id].messages.create({ content: `Queued up: ${data[0].info.title}` });
+			await this.client.redis.rpush(`tracklist:${message.guild_id}`, JSON.stringify(data[0]));
+			await this.client.rest.channels[message.channel_id].messages.create({ content: `Queued up: ${data[0].info.title}` });
 		}
 	}
 }
